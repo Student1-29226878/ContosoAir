@@ -26,6 +26,7 @@ steps:
     definition: '2'
     buildVersionToDownload: 'latest'
     targetPath: '$(Pipeline.Workspace)'
+
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
@@ -33,7 +34,7 @@ steps:
     subscriptionId: '21caef3c-ab49-41c1-baf1-c1914ca4e2d0'
     action: 'Create Or Update Resource Group'
     resourceGroupName: '$(resourcegroup)'
-    location: 'West US 2'
+    location: 'Central US'
     templateLocation: 'Linked artifact'
     csmFile: '$(Pipeline.Workspace)/drop/Templates/azuredeploy.json'
     csmParametersFile: '$(Pipeline.Workspace)/drop/Templates/azuredeploy.parameters.json'
